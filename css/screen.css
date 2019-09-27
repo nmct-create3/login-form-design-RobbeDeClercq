@@ -570,6 +570,7 @@ input{
 }
 
 /*
+<<<<<<< HEAD
     Component: Links
     ---
     Class to put on all form Links
@@ -588,6 +589,8 @@ input{
 }
 
 /*
+=======
+>>>>>>> ed4ae79acc03d4499c1af2c902970b4439932619
     Component: Button
     ---
     Class to put on form buttons or links
