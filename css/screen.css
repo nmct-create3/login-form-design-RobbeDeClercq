@@ -186,7 +186,7 @@ a:focus {
     color: #2E77E6;
 }
 
-label, 
+label,
 input{
     display: block;
 }
@@ -465,13 +465,13 @@ input{
 
 .c-logo__path--1{
     fill: #3385FF;
-} 
+}
 
 .c-logo__path--2{
     fill: #1B4186;
 }
 
-.c-logo__path--3{ 
+.c-logo__path--3{
     fill: #20223A;
 }
 
@@ -485,7 +485,7 @@ input{
     background: white;
     border: 1px solid #00000015;
     border-radius: 4px;
-    
+
 }
 
 .c-card__body{
@@ -548,7 +548,7 @@ input{
     outline: none;
     border-color: #3385FF;
     box-shadow: h-offset v-offset blur spread color;
-    box-shadow: 0 0 0 3px #3385ff4d; 
+    box-shadow: 0 0 0 3px #3385ff4d;
 }
 
 /*
