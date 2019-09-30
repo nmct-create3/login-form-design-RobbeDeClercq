@@ -21,7 +21,18 @@
 \*------------------------------------*/
 
 :root {
-
+    --global-color-alpha-light: #4F95FF;
+    --global-color-alpha: #3385FF;
+    --global-color-alpha-dark: #2E77E6;
+    --global-baseline: 8px;
+    --global-whitespace: calc(var(--global-baseline) * 3);
+    --global-whitespace-xxsm: calc(var(--global-whitespace) / 4);
+    --global-whitespace-xsm: calc(var(--global-whitespace) / 3);
+    --global-whitespace-sm: calc(var(--global-whitespace) / 2);
+    --global-whitespace-md: calc(var(--global-baseline) * 2);
+    --global-whitespace-xl: calc(var(--global-whitespace) * 2);
+    --global-whitespace-xxl: calc(var(--global-whitespace) * 3);
+    --global-whitespace-xxxl: calc(var(--global-whitespace) * 4); /* = 96px */
 }
 
 /* CSS variables here */
@@ -36,6 +47,7 @@
     Global page styles + universal box-sizing:
 */
 
+body,
 html {
     font-size: 16px;
     line-height: 1.5;
@@ -102,19 +114,19 @@ h3 {
 h1 {
     font-size: 36px;
     line-height: 48px;
-    margin: 0 0 24px;
+    margin: 0 0 var(--global-whitespace);
 }
 
 h2 {
     font-size: 32px;
     line-height: 40px;
-    margin: 0 0 24px;
+    margin: 0 0 var(--global-whitespace);
 }
 
 h3 {
     font-size: 26px;
     line-height: 32px;
-    margin: 0 0 24px;
+    margin: 0 0 var(--global-whitespace);
 }
 
 h4,
@@ -122,7 +134,7 @@ h5,
 h6 {
     font-size: 20px;
     line-height: 24px;
-    margin: 0 0 24px;
+    margin: 0 0 var(--global-whitespace);
 }
 
 p,
@@ -132,12 +144,12 @@ dl,
 table,
 address,
 figure {
-    margin: 0 0 24px;
+    margin: 0 0 var(--global-whitespace);
 }
 
 ul,
 ol {
-    padding-left: 24px;
+    padding-left: var(--global-whitespace);
 }
 
 li ul,
@@ -149,7 +161,7 @@ blockquote {
     font-style: normal;
     font-size: 23px;
     line-height: 32px;
-    margin: 0 0 24px;
+    margin: 0 0 var(--global-whitespace);
 }
 
 blockquote * {
@@ -161,29 +173,29 @@ figcaption {
     font-weight: 400;
     font-size: 12px;
     line-height: 16px;
-    margin-top: 8px;
+    margin-top: var(--global-whitespace-xms);
 }
 
 hr {
     border: 0;
     height: 1px;
     background: LightGrey;
-    margin: 0 0 24px;
+    margin: 0 0 var(--global-whitespace);
 }
 
 a {
-    color: #3385FF;
+    color: var(--global-color-alpha);
     transition: all .1s ease-in-out;
 }
 
 a:visited,
 a:active {
-    color: #4F95FF;
+    color: var(--global-color-alpha-light);
 }
 
 a:hover,
 a:focus {
-    color: #2E77E6;
+    color: var(--global-color-alpha-dark   );
 }
 
 label,
@@ -203,36 +215,39 @@ input{
 
 .o-row {
     position: relative;
-    padding: 24px 24px 0;
+    padding: var(--global-whitespace) var(--global-whitespace) 0;
 }
 
 .o-row--login {
     /* stuff here to align the card */
+    display: flex;
+    align-items: center;
+    height: 100vh;
 }
 
 /* size modifiers */
 
 .o-row--lg {
-    padding-top: 48px;
-    padding-bottom: 24px;
+    padding-top: var(--global-whitespace-xl);
+    padding-bottom: var(--global-whitespace);
 }
 
 .o-row--xl {
-    padding-top: 72px;
-    padding-bottom: 48px;
+    padding-top: var(--global-whitespace-xxl);
+    padding-bottom: var(--global-whitespace);
 }
 
 @media (min-width: 768px) {
     .o-row {
-        padding-left: 48px;
-        padding-right: 48px;
+        padding-left: var(--global-whitespace-xl);
+        padding-right: var(--global-whitespace-xl);
     }
 }
 
 @media (min-width: 992px) {
     .o-row--xl {
-        padding-top: 96px;
-        padding-bottom: 72px;
+        padding-top: var(--global-whitespace-xxxl);
+        padding-bottom: var(--global-whitespace-xxl);
     }
 }
 
@@ -260,19 +275,19 @@ input{
 }
 
 .o-section + .o-section {
-    padding-top: 24px;
+    padding-top: var(--global-whitespace);
 }
 
 @media (min-width: 768px) {
     .o-section--lg + .o-section--lg,
     .o-section--xl + .o-section--xl {
-        padding-top: 48px;
+        padding-top: var(--global-whitespace-xl);
     }
 }
 
 @media (min-width: 992px) {
     .o-section--xl + .o-section--xl {
-        padding-top: 72px;
+        padding-top: var(--global-whitespace-xxl);
     }
 }
 
@@ -298,11 +313,11 @@ input{
 /* gutter modifiers, these affect o-layout__item too */
 
 .o-layout--gutter {
-    margin: 0 -12px;
+    margin: 0 calc(var(--global-whitespace-sm) * -1);
 }
 
 .o-layout--gutter > .o-layout__item {
-    padding: 0 12px;
+    padding: 0 calc(var(--global-whitespace) / 2);
 }
 
 .o-layout--gutter-sm {
@@ -310,23 +325,23 @@ input{
 }
 
 .o-layout--gutter-sm > .o-layout__item {
-    padding: 0 6px;
+    padding: 0 calc(var(--global-whitespace) / 4);
 }
 
 .o-layout--gutter-lg {
-    margin: 0 -24px;
+    margin: 0 calc(var(--global-whitespace) * -1);
 }
 
 .o-layout--gutter-lg > .o-layout__item {
-    padding: 0 24px;
+    padding: 0 var(--global-whitespace);
 }
 
 .o-layout--gutter-xl {
-    margin: 0 -48px;
+    margin: 0 calc(var(--global-whitespace-xl) * -1);
 }
 
 .o-layout--gutter-xl > .o-layout__item {
-    padding: 0 48px;
+    padding: 0 var(--global-whitespace-xl);
 }
 
 /* reverse horizontal row modifier */
@@ -489,24 +504,23 @@ input{
 }
 
 .c-card__body{
-    padding: 48px;
+    padding: var(--global-whitespace-xl);
 }
 
 .c-card__footer{
     border-top: 1px solid #00000015;
     display: flex;
     justify-content: center;
-    padding-top: 24px;
-    padding-left: 48px;
-    padding-right: 48px;
+    padding-top: var(--global-whitespace);
+    padding-left: var(--global-whitespace-xl);
+    padding-right: var(--global-whitespace-xl);
     font-size: 14px;
-    color: #757787;
 }
 
 .c-card__title{
     font-size: 18px;
     font-weight: 600;
-    padding-top: 48px;
+    padding-top: var(--global-whitespace-xl);
     display: flex;
     justify-content: center;
 }
@@ -522,10 +536,6 @@ input{
     align-items: center;
 }
 
-.c-form__button{
-    margin-bottom: 16px;
-}
-
 /*
     Component: Input
     ---
@@ -538,7 +548,7 @@ input{
     font-size: 16px;
     line-height: 24px;
     color: #20223A;
-    padding: 11px 16px; /* Verticaal 1+11+24+11+1 = 48 */
+    padding: 11px var(--global-whitespace-md); /* Verticaal 1+11+24+11+1 = 48 */
     border: 1px solid #E2E3E7;
     border-radius: 4px;
     appearance: none;
@@ -560,12 +570,12 @@ input{
 .c-label {
     font-size: 14px;
     line-height: 16px;
-    margin-bottom: 8px;
+    margin-bottom: var(--global-whitespace-xsm);
     color: #606274;
 }
 
 .c-label--option{
-    margin-left: 8px;
+    margin-left: var(--global-whitespace-xsm);
     margin-bottom: 0;
 }
 
@@ -575,12 +585,6 @@ input{
     ---
     Class to put on all form Links
 */
-
-.c-link{
-    display: flex;
-    justify-content: center;
-    font-size: 14px;
-}
 
 /* If a input is focused within the form-field class change te color of the label */
 
@@ -610,7 +614,7 @@ input{
 }
 
 .c-button:hover {
-    background-color: #4F95FF;
+    background-color: var(--global-color-alpha-light);
 }
 
 .c-button:focus {
@@ -660,23 +664,23 @@ input{
 }
 
 .u-mb-xs {
-    margin-bottom: 4px !important;
+    margin-bottom: calc(var(--global-whitespace-xsm) / 2) !important;
 }
 
 .u-mb-sm {
-    margin-bottom: 8px !important;
+    margin-bottom: var(--global-whitespace-xsm) !important;
 }
 
 .u-mb-md {
-    margin-bottom: 16px !important;
+    margin-bottom: var(--global-whitespace-md) !important;
 }
 
 .u-mb-lg {
-    margin-bottom: 32px !important;
+    margin-bottom: var(--global-whitespace-lg) !important;
 }
 
 .u-mb-xl {
-    margin-bottom: 48px !important;
+    margin-bottom: var(--global-whitespace-xl) !important;
 }
 
 /*
